@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTA BURGA & ALTA BURGA COFFEE - Menú Digital</title>
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #FDF8F2;
+            --card-bg: #FFFFFF;
+            --primary-burgundy: #7A1C1C;
+            --primary-orange: #D96B27;
+            --warm-accent: #E89A3C;
+            --text-dark: #2C1810;
+            --text-muted: #6C5A52;
+            --light-border: #EEDFD2;
+            --shadow: 0 4px 20px rgba(122, 28, 28, 0.08);
+            --radius-lg: 20px;
+            --radius-md: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            padding-bottom: 90px;
+            background-image: radial-gradient(rgba(217, 107, 39, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Header section */
+        .header {
+            background: linear-gradient(135deg, #7A1C1C 0%, #4A0E0E 100%);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 35px 20px 25px 20px;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+            box-shadow: 0 10px 25px rgba(74, 14, 14, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        .logo-badge {
+            width: 90px;
+            height: 90px;
+            background: #111111;
+            border: 3px solid var(--primary-orange);
+            border-radius: 50%;
+            margin: 0 auto 12px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+        .logo-badge i {
+            font-size: 32px;
+            color: #FFB703;
+        }
+
+        .logo-badge .badge-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 11px;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .brand-subtitle {
+            font-size: 13px;
+            font-weight: 500;
+            color: #FCE8D5;
+            opacity: 0.95;
+            max-width: 280px;
+            margin: 0 auto;
+            line-height: 1.3;
+        }
+
+        /* Toggle Tabs */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin: -22px 20px 20px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tabs-wrapper {
+            background: #FFFFFF;
+            padding: 5px;
+            border-radius: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            display: flex;
+            width: 100%;
+            max-width: 420px;
+            border: 1px solid var(--light-border);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 10px;
+            border: none;
+            border-radius: 35px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary-burgundy) 0%, var(--primary-orange) 100%);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(217, 107, 39, 0.3);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Notice Banner */
+        .notice-banner {
+            background: #FFF4E8;
+            border: 1px solid #FCD3B1;
+            border-left: 4px solid var(--primary-orange);
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #7A3E12;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .notice-banner i {
+            font-size: 18px;
+            color: var(--primary-orange);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .menu-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary-burgundy);
+            margin: 22px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-title i {
+            color: var(--primary-orange);
+            font-size: 20px;
+        }
+
+        /* Items Grid & Cards */
+        .item-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(238, 223, 210, 0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .item-card:active {
+            transform: scale(0.99);
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .item-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .badge-tag {
+            background: #FFE8D6;
+            color: var(--primary-burgundy);
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .item-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: 4px;
+        }
+
+        .item-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--primary-burgundy);
+            background: #FAF0E6;
+            padding: 6px 12px;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
+        /* Sub-grid for size choices */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .price-chip {
+            background: #FAF0E6;
+            padding: 10px 12px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--light-border);
+        }
+
+        .price-chip .size {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .price-chip .val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--primary-burgundy);
+        }
+
+        /* Footer & Order Bar */
+        .fixed-order-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 16px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 100;
+            border-top: 1px solid var(--light-border);
+        }
+
+        .action-btn {
+            flex: 1;
+            max-width: 250px;
+            padding: 12px 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-wsp {
+            background: #25D366;
+            color: #FFFFFF;
+        }
+
+        .btn-ig {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            color: #FFFFFF;
+        }
+
+        .footer-info {
+            text-align: center;
+            padding: 25px 15px 10px 15px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Principal -->
+    <header class="header">
+        <div class="logo-badge">
+            <i class="fa-solid fa-burger"></i>
+            <span class="badge-text">ALTA<br>BURGA</span>
+        </div>
+        <h1 class="brand-title" id="header-title">ALTA BURGA</h1>
+        <p class="brand-subtitle" id="header-subtitle">Hamburguesas de Verdad · ¡Elegí lo que más te guste!</p>
+    </header>
+
+    <!-- Pestañas de Navegación Día / Noche -->
+    <div class="tabs-container">
+        <div class="tabs-wrapper">
+            <button class="tab-btn active" onclick="switchMenu('burger')">
+                <i class="fa-solid fa-burger"></i> Hamburguesería
+            </button>
+            <button class="tab-btn" onclick="switchMenu('coffee')">
+                <i class="fa-solid fa-mug-hot"></i> Cafetería
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- VISTA HAMBURGUESERÍA (NOCHE) -->
+        <div id="burger-menu" class="menu-section active">
+            
+            <div class="notice-banner">
+                <i class="fa-solid fa-fire"></i>
+                <span>¡Todas las hamburguesas incluyen papas fritas! 🍟</span>
+            </div>
+
+            <!-- Precios Base Combo -->
+            <div class="category-title"><i class="fa-solid fa-layer-group"></i> Combos con Papas</div>
+            
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">🍔 Simple + Papas</div>
+                    <div class="item-desc">1 medallón de carne + acompañamiento de papas fritas.</div>
+                </div>
+                <div class="item-price">$7.000</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">🍔 Doble + Papas</div>
+                    <div class="item-desc">2 medallones de carne + acompañamiento de papas fritas.</div>
+                </div>
+                <div class="item-price">$10.000</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">🍔 Triple + Papas</div>
+                    <div class="item-desc">3 medallones de carne + acompañamiento de papas fritas.</div>
+                </div>
+                <div class="item-price">$13.000</div>
+            </div>
+
+            <!-- Variedades -->
+            <div class="category-title"><i class="fa-solid fa-utensils"></i> Variedades</div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Americana</div>
+                    <div class="item-desc">Medallón, queso cheddar, tomate, lechuga y cebolla morada.</div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Oklahoma</div>
+                    <div class="item-desc">Medallón, queso cheddar y cebolla caramelizada.</div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Super Oklahoma <span class="badge-tag">Top</span></div>
+                    <div class="item-desc">Medallón, queso cheddar, cebolla caramelizada y panceta.</div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Bacon</div>
+                    <div class="item-desc">Medallón, queso cheddar y panceta ahumada.</div>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Extra Cheese</div>
+                    <div class="item-desc">Medallón y doble queso cheddar.</div>
+                </div>
+            </div>
+
+            <!-- Bebidas -->
+            <div class="category-title"><i class="fa-solid fa-bottle-water"></i> Bebidas</div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Lata 354 cc</div>
+                    <div class="item-desc">Coca-Cola, Sprite o Fanta.</div>
+                </div>
+                <div class="item-price">$1.800</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Coca-Cola 500 cc</div>
+                </div>
+                <div class="item-price">$2.100</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Gaseosas 1,5 L</div>
+                    <div class="item-desc">Coca-Cola, Sprite o Fanta.</div>
+                </div>
+                <div class="item-price">$4.300</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Coca-Cola 2,5 L</div>
+                </div>
+                <div class="item-price">$6.000</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Livra (Naranja / Manzana)</div>
+                </div>
+                <div class="item-price">$1.600</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Cerveza Schneider 710 cc</div>
+                </div>
+                <div class="item-price">$3.200</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name">Cerveza Quilmes 710 cc</div>
+                </div>
+                <div class="item-price">$3.500</div>
+            </div>
+
+        </div>
+
+        <!-- VISTA CAFETERÍA (DÍA) -->
+        <div id="coffee-menu" class="menu-section">
+
+            <div class="notice-banner">
+                <i class="fa-solid fa-heart"></i>
+                <span>La calidad que conocés, ahora también en café. ☕</span>
+            </div>
+
+            <div class="category-title"><i class="fa-solid fa-coffee"></i> Bebidas Individuales</div>
+
+            <div class="price-grid">
+                <div class="price-chip">
+                    <span class="size">Café 200 cc</span>
+                    <span class="val">$1.500</span>
+                </div>
+                <div class="price-chip">
+                    <span class="size">Café 300 cc</span>
+                    <span class="val">$3.000</span>
+                </div>
+                <div class="price-chip">
+                    <span class="size">Café c/ leche 200 cc</span>
+                    <span class="val">$2.500</span>
+                </div>
+                <div class="price-chip">
+                    <span class="size">Café c/ leche 300 cc</span>
+                    <span class="val">$3.700</span>
+                </div>
+                <div class="price-chip">
+                    <span class="size">Submarino 240 cc</span>
+                    <span class="val">$4.000</span>
+                </div>
+                <div class="price-chip">
+                    <span class="size">Infusiones varias 150 cc</span>
+                    <span class="val">$1.500</span>
+                </div>
+            </div>
+
+            <div class="category-title"><i class="fa-solid fa-croissant"></i> Para Acompañar</div>
+
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Medialuna</div></div>
+                <div class="item-price">$1.100</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Criollito Cordobés</div></div>
+                <div class="item-price">$500</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Tostado</div></div>
+                <div class="item-price">$1.500</div>
+            </div>
+
+            <!-- Promos Café 200 cc -->
+            <div class="category-title"><i class="fa-solid fa-star"></i> Promos Café 200 cc</div>
+
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café + 2 criollitos</div></div>
+                <div class="item-price">$2.500</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café + 2 medialunas</div></div>
+                <div class="item-price">$3.500</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café + 1 criollito + 1 medialuna</div></div>
+                <div class="item-price">$3.000</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café + 1 tostado</div></div>
+                <div class="item-price">$3.000</div>
+            </div>
+
+            <!-- Promos Café 300 cc -->
+            <div class="category-title"><i class="fa-solid fa-star"></i> Promos Café 300 cc</div>
+
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café + 2 criollitos</div></div>
+                <div class="item-price">$4.300</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café + 2 medialunas</div></div>
+                <div class="item-price">$5.300</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café + 1 criollito + 1 medialuna</div></div>
+                <div class="item-price">$4.500</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café + 1 tostado</div></div>
+                <div class="item-price">$5.000</div>
+            </div>
+
+            <!-- Promos Café con Leche 200 cc -->
+            <div class="category-title"><i class="fa-solid fa-mug-hot"></i> Promos Café c/ Leche 200 cc</div>
+
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 2 criollitos</div></div>
+                <div class="item-price">$4.300</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 2 medialunas</div></div>
+                <div class="item-price">$5.000</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 1 criollito + 1 medialuna</div></div>
+                <div class="item-price">$4.500</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 1 tostado</div></div>
+                <div class="item-price">$5.000</div>
+            </div>
+
+            <!-- Promos Café con Leche 300 cc -->
+            <div class="category-title"><i class="fa-solid fa-mug-hot"></i> Promos Café c/ Leche 300 cc</div>
+
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 2 criollitos</div></div>
+                <div class="item-price">$4.700</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 2 medialunas</div></div>
+                <div class="item-price">$5.500</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 1 criollito + 1 medialuna</div></div>
+                <div class="item-price">$5.000</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 1 tostado</div></div>
+                <div class="item-price">$5.200</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Café c/ leche + 2 tostados</div></div>
+                <div class="item-price">$6.500</div>
+            </div>
+
+            <!-- Promos Submarino -->
+            <div class="category-title"><i class="fa-solid fa-whiskey-glass"></i> Promos Submarino 240 cc</div>
+
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Submarino + 2 criollitos</div></div>
+                <div class="item-price">$5.000</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Submarino + 2 medialunas</div></div>
+                <div class="item-price">$6.000</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Submarino + 1 criollito + 1 medialuna</div></div>
+                <div class="item-price">$5.500</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Submarino + 1 tostado</div></div>
+                <div class="item-price">$5.500</div>
+            </div>
+            <div class="item-card">
+                <div class="item-info"><div class="item-name">Submarino + 2 tostados</div></div>
+                <div class="item-price">$7.000</div>
+            </div>
+
+        </div>
+
+        <div class="footer-info">
+            <p><strong>Servicio en Local & Delivery</strong></p>
+            <p style="margin-top:4px;">¡Hacé tu pedido o vení a disfrutar!</p>
+        </div>
+
+    </div>
+
+    <!-- Barra fija inferior de pedidos -->
+    <div class="fixed-order-bar">
+        <a href="https://wa.me/5492665125667?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" class="action-btn btn-wsp">
+            <i class="fa-brands fa-whatsapp" style="font-size:18px;"></i> Pedir por WhatsApp
+        </a>
+        <a href="https://instagram.com/altaburgatt" target="_blank" class="action-btn btn-ig">
+            <i class="fa-brands fa-instagram" style="font-size:18px;"></i> Instagram
+        </a>
+    </div>
+
+    <script>
+        function switchMenu(type) {
+            const burgerMenu = document.getElementById('burger-menu');
+            const coffeeMenu = document.getElementById('coffee-menu');
+            const buttons = document.querySelectorAll('.tab-btn');
+            const headerTitle = document.getElementById('header-title');
+            const headerSubtitle = document.getElementById('header-subtitle');
+
+            if (type === 'burger') {
+                burgerMenu.classList.add('active');
+                coffeeMenu.classList.remove('active');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+                headerTitle.textContent = "ALTA BURGA";
+                headerSubtitle.textContent = "Hamburguesas de Verdad · ¡Elegí lo que más te guste!";
+            } else {
+                coffeeMenu.classList.add('active');
+                burgerMenu.classList.remove('active');
+                buttons[1].classList.add('active');
+                buttons[0].classList.remove('active');
+                headerTitle.textContent = "ALTA BURGA COFFEE";
+                headerSubtitle.textContent = "La calidad que conocés, ahora también en café.";
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
