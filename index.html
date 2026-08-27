@@ -241,18 +241,22 @@
             flex: 1;
         }
 
-        .item-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 4px;
-        }
-
         .item-name {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
             font-size: 16px;
             color: var(--text-dark);
+        }
+
+        .badge-number {
+            background: var(--primary-burgundy);
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 50%;
+            margin-right: 6px;
+            display: inline-block;
         }
 
         .badge-tag {
@@ -528,12 +532,100 @@
                 <span>La calidad que conocés, ahora también en café. ☕</span>
             </div>
 
-            <div class="category-title"><i class="fa-solid fa-coffee"></i> Bebidas Individuales</div>
+            <!-- PROMOS DESTACADAS CON NÚMERO -->
+            <div class="category-title"><i class="fa-solid fa-star"></i> Promos Café + Algo Rico</div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">1</span> Café 200 cc + 2 Medialunas</div>
+                </div>
+                <div class="item-price">$4.000</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">2</span> Café 200 cc + 2 Criollitos</div>
+                </div>
+                <div class="item-price">$2.800</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">3</span> Café 200 cc + 1 Medialuna + 1 Criollito</div>
+                </div>
+                <div class="item-price">$3.400</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">4</span> Café 200 cc + 1 Tostado / Tostado de Campo</div>
+                </div>
+                <div class="item-price">$3.500</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">5</span> Café con Leche 200 cc + 2 Medialunas</div>
+                </div>
+                <div class="item-price">$4.700</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">6</span> Café con Leche 200 cc + 2 Criollitos</div>
+                </div>
+                <div class="item-price">$3.500</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">7</span> Café con Leche 200 cc + 1 Medialuna + 1 Criollito</div>
+                </div>
+                <div class="item-price">$4.100</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">8</span> Café con Leche 200 cc + 1 Tostado / Tostado de Campo</div>
+                </div>
+                <div class="item-price">$4.200</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">9</span> Submarino 240 cc + 2 Medialunas</div>
+                </div>
+                <div class="item-price">$6.000</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">10</span> Submarino 240 cc + 1 Tostado / Tostado de Campo</div>
+                </div>
+                <div class="item-price">$5.500</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">11</span> Latte Macchiato + 2 Medialunas</div>
+                </div>
+                <div class="item-price">$5.700</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-name"><span class="badge-number">12</span> Latte Macchiato + 1 Tostado / Tostado de Campo</div>
+                </div>
+                <div class="item-price">$5.200</div>
+            </div>
+
+            <!-- PRECIOS INDIVIDUALES BEBIDAS -->
+            <div class="category-title"><i class="fa-solid fa-coffee"></i> Precios Individuales - Bebidas</div>
 
             <div class="price-grid">
                 <div class="price-chip">
                     <span class="size">Café 200 cc</span>
-                    <span class="val">$1.500</span>
+                    <span class="val">$2.000</span>
                 </div>
                 <div class="price-chip">
                     <span class="size">Café 300 cc</span>
@@ -541,7 +633,7 @@
                 </div>
                 <div class="price-chip">
                     <span class="size">Café c/ leche 200 cc</span>
-                    <span class="val">$2.500</span>
+                    <span class="val">$2.700</span>
                 </div>
                 <div class="price-chip">
                     <span class="size">Café c/ leche 300 cc</span>
@@ -552,12 +644,13 @@
                     <span class="val">$4.000</span>
                 </div>
                 <div class="price-chip">
-                    <span class="size">Infusiones varias 150 cc</span>
-                    <span class="val">$1.500</span>
+                    <span class="size">Latte Macchiato</span>
+                    <span class="val">$3.700</span>
                 </div>
             </div>
 
-            <div class="category-title"><i class="fa-solid fa-croissant"></i> Para Acompañar</div>
+            <!-- ACOMPAÑAMIENTOS -->
+            <div class="category-title"><i class="fa-solid fa-croissant"></i> Acompañamientos</div>
 
             <div class="item-card">
                 <div class="item-info"><div class="item-name">Medialuna</div></div>
@@ -571,120 +664,16 @@
                 <div class="item-info"><div class="item-name">Tostado</div></div>
                 <div class="item-price">$1.500</div>
             </div>
-
-            <!-- Promos Café 200 cc -->
-            <div class="category-title"><i class="fa-solid fa-star"></i> Promos Café 200 cc</div>
-
             <div class="item-card">
-                <div class="item-info"><div class="item-name">Café + 2 criollitos</div></div>
-                <div class="item-price">$2.500</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café + 2 medialunas</div></div>
-                <div class="item-price">$3.500</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café + 1 criollito + 1 medialuna</div></div>
-                <div class="item-price">$3.000</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café + 1 tostado</div></div>
-                <div class="item-price">$3.000</div>
-            </div>
-
-            <!-- Promos Café 300 cc -->
-            <div class="category-title"><i class="fa-solid fa-star"></i> Promos Café 300 cc</div>
-
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café + 2 criollitos</div></div>
-                <div class="item-price">$4.300</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café + 2 medialunas</div></div>
-                <div class="item-price">$5.300</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café + 1 criollito + 1 medialuna</div></div>
-                <div class="item-price">$4.500</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café + 1 tostado</div></div>
-                <div class="item-price">$5.000</div>
-            </div>
-
-            <!-- Promos Café con Leche 200 cc -->
-            <div class="category-title"><i class="fa-solid fa-mug-hot"></i> Promos Café c/ Leche 200 cc</div>
-
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 2 criollitos</div></div>
-                <div class="item-price">$4.300</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 2 medialunas</div></div>
-                <div class="item-price">$5.000</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 1 criollito + 1 medialuna</div></div>
-                <div class="item-price">$4.500</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 1 tostado</div></div>
-                <div class="item-price">$5.000</div>
-            </div>
-
-            <!-- Promos Café con Leche 300 cc -->
-            <div class="category-title"><i class="fa-solid fa-mug-hot"></i> Promos Café c/ Leche 300 cc</div>
-
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 2 criollitos</div></div>
-                <div class="item-price">$4.700</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 2 medialunas</div></div>
-                <div class="item-price">$5.500</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 1 criollito + 1 medialuna</div></div>
-                <div class="item-price">$5.000</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 1 tostado</div></div>
-                <div class="item-price">$5.200</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Café c/ leche + 2 tostados</div></div>
-                <div class="item-price">$6.500</div>
-            </div>
-
-            <!-- Promos Submarino -->
-            <div class="category-title"><i class="fa-solid fa-whiskey-glass"></i> Promos Submarino 240 cc</div>
-
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Submarino + 2 criollitos</div></div>
-                <div class="item-price">$5.000</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Submarino + 2 medialunas</div></div>
-                <div class="item-price">$6.000</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Submarino + 1 criollito + 1 medialuna</div></div>
-                <div class="item-price">$5.500</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Submarino + 1 tostado</div></div>
-                <div class="item-price">$5.500</div>
-            </div>
-            <div class="item-card">
-                <div class="item-info"><div class="item-name">Submarino + 2 tostados</div></div>
-                <div class="item-price">$7.000</div>
+                <div class="item-info"><div class="item-name">Tostado de Campo</div></div>
+                <div class="item-price">$1.500</div>
             </div>
 
         </div>
 
         <div class="footer-info">
             <p><strong>Servicio en Local & Delivery</strong></p>
-            <p style="margin-top:4px;">¡Hacé tu pedido o vení a disfrutar!</p>
+            <p style="margin-top:4px;">¡Gracias por elegirnos! ❤️</p>
         </div>
 
     </div>
